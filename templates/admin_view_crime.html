@@ -1,0 +1,35 @@
+{% include "admin_home.html" %}
+
+<center>
+	<form method="post">
+	<table border="2">
+		<tr>
+			<th>SL No</th>
+			<th>STATION NAME</th>
+			<th>OFFICER NAME</th>
+			<th>CASE NUMBER</th>
+			<th>TYPE OF CRIME</th>
+	
+
+		</tr>
+
+		
+			{% for j in data['k'] %}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{j['station_name']}}</td>
+			<td>{{j['name']}}</td>
+			<td>{{j['case_num']}}</td>
+			<td>{{j['type_of_crime']}}</td>
+	
+			<td><a class="btn btn-primary" href="http://www.google.com/maps?q={{ j['latitude'] }},{{ j['longitude'] }}">Click Me</a></td>
+			<td colspan="2" align="center"><input type="submit" name="allocate"  value="ASSIGN STAFF"></td>
+
+		</tr>
+		{% endfor %}
+	</table>
+	</form>
+</center>
+
+
+{% include "footer.html"%}
